@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3FF86B911647D4FD00CB3682 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF86B901647D4FD00CB3682 /* UIKit.framework */; };
+		3FF86B931647D4FD00CB3682 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF86B921647D4FD00CB3682 /* Foundation.framework */; };
+		3FF86B951647D4FD00CB3682 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF86B941647D4FD00CB3682 /* CoreGraphics.framework */; };
+		3FF86B9B1647D4FD00CB3682 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF86B991647D4FD00CB3682 /* InfoPlist.strings */; };
+		3FF86B9D1647D4FD00CB3682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF86B9C1647D4FD00CB3682 /* main.m */; };
+		3FF86BA11647D4FD00CB3682 /* BTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF86BA01647D4FD00CB3682 /* BTAppDelegate.m */; };
+		3FF86BA31647D4FD00CB3682 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF86BA21647D4FD00CB3682 /* Default.png */; };
+		3FF86BA51647D4FD00CB3682 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF86BA41647D4FD00CB3682 /* Default@2x.png */; };
+		3FF86BA71647D4FD00CB3682 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FF86BA61647D4FD00CB3682 /* Default-568h@2x.png */; };
+		3FF86BAF1647D4FD00CB3682 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF86BAE1647D4FD00CB3682 /* SenTestingKit.framework */; };
+		3FF86BB01647D4FD00CB3682 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF86B901647D4FD00CB3682 /* UIKit.framework */; };
+		3FF86BB11647D4FD00CB3682 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF86B921647D4FD00CB3682 /* Foundation.framework */; };
+		3FF86BB91647D4FD00CB3682 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF86BB71647D4FD00CB3682 /* InfoPlist.strings */; };
+		3FF86BBC1647D4FD00CB3682 /* BTNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF86BBB1647D4FD00CB3682 /* BTNetworkTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3FF86BB21647D4FD00CB3682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FF86B831647D4FD00CB3682 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FF86B8B1647D4FD00CB3682;
+			remoteInfo = BTNetwork;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3FF86B8C1647D4FD00CB3682 /* BTNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FF86B901647D4FD00CB3682 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3FF86B921647D4FD00CB3682 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3FF86B941647D4FD00CB3682 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3FF86B981647D4FD00CB3682 /* BTNetwork-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BTNetwork-Info.plist"; sourceTree = "<group>"; };
+		3FF86B9A1647D4FD00CB3682 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3FF86B9C1647D4FD00CB3682 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3FF86B9E1647D4FD00CB3682 /* BTNetwork-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTNetwork-Prefix.pch"; sourceTree = "<group>"; };
+		3FF86B9F1647D4FD00CB3682 /* BTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTAppDelegate.h; sourceTree = "<group>"; };
+		3FF86BA01647D4FD00CB3682 /* BTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTAppDelegate.m; sourceTree = "<group>"; };
+		3FF86BA21647D4FD00CB3682 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		3FF86BA41647D4FD00CB3682 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		3FF86BA61647D4FD00CB3682 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3FF86BAD1647D4FD00CB3682 /* BTNetworkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTNetworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FF86BAE1647D4FD00CB3682 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		3FF86BB61647D4FD00CB3682 /* BTNetworkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BTNetworkTests-Info.plist"; sourceTree = "<group>"; };
+		3FF86BB81647D4FD00CB3682 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3FF86BBA1647D4FD00CB3682 /* BTNetworkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTNetworkTests.h; sourceTree = "<group>"; };
+		3FF86BBB1647D4FD00CB3682 /* BTNetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTNetworkTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3FF86B891647D4FD00CB3682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF86B911647D4FD00CB3682 /* UIKit.framework in Frameworks */,
+				3FF86B931647D4FD00CB3682 /* Foundation.framework in Frameworks */,
+				3FF86B951647D4FD00CB3682 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FF86BA91647D4FD00CB3682 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF86BAF1647D4FD00CB3682 /* SenTestingKit.framework in Frameworks */,
+				3FF86BB01647D4FD00CB3682 /* UIKit.framework in Frameworks */,
+				3FF86BB11647D4FD00CB3682 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FF86B811647D4FD00CB3682 = {
+			isa = PBXGroup;
+			children = (
+				3FF86B961647D4FD00CB3682 /* BTNetwork */,
+				3FF86BB41647D4FD00CB3682 /* BTNetworkTests */,
+				3FF86B8F1647D4FD00CB3682 /* Frameworks */,
+				3FF86B8D1647D4FD00CB3682 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3FF86B8D1647D4FD00CB3682 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3FF86B8C1647D4FD00CB3682 /* BTNetwork.app */,
+				3FF86BAD1647D4FD00CB3682 /* BTNetworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3FF86B8F1647D4FD00CB3682 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FF86B901647D4FD00CB3682 /* UIKit.framework */,
+				3FF86B921647D4FD00CB3682 /* Foundation.framework */,
+				3FF86B941647D4FD00CB3682 /* CoreGraphics.framework */,
+				3FF86BAE1647D4FD00CB3682 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3FF86B961647D4FD00CB3682 /* BTNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				3FF86B9F1647D4FD00CB3682 /* BTAppDelegate.h */,
+				3FF86BA01647D4FD00CB3682 /* BTAppDelegate.m */,
+				3FF86B971647D4FD00CB3682 /* Supporting Files */,
+			);
+			path = BTNetwork;
+			sourceTree = "<group>";
+		};
+		3FF86B971647D4FD00CB3682 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FF86B981647D4FD00CB3682 /* BTNetwork-Info.plist */,
+				3FF86B991647D4FD00CB3682 /* InfoPlist.strings */,
+				3FF86B9C1647D4FD00CB3682 /* main.m */,
+				3FF86B9E1647D4FD00CB3682 /* BTNetwork-Prefix.pch */,
+				3FF86BA21647D4FD00CB3682 /* Default.png */,
+				3FF86BA41647D4FD00CB3682 /* Default@2x.png */,
+				3FF86BA61647D4FD00CB3682 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FF86BB41647D4FD00CB3682 /* BTNetworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				3FF86BBA1647D4FD00CB3682 /* BTNetworkTests.h */,
+				3FF86BBB1647D4FD00CB3682 /* BTNetworkTests.m */,
+				3FF86BB51647D4FD00CB3682 /* Supporting Files */,
+			);
+			path = BTNetworkTests;
+			sourceTree = "<group>";
+		};
+		3FF86BB51647D4FD00CB3682 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3FF86BB61647D4FD00CB3682 /* BTNetworkTests-Info.plist */,
+				3FF86BB71647D4FD00CB3682 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3FF86B8B1647D4FD00CB3682 /* BTNetwork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FF86BBF1647D4FD00CB3682 /* Build configuration list for PBXNativeTarget "BTNetwork" */;
+			buildPhases = (
+				3FF86B881647D4FD00CB3682 /* Sources */,
+				3FF86B891647D4FD00CB3682 /* Frameworks */,
+				3FF86B8A1647D4FD00CB3682 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BTNetwork;
+			productName = BTNetwork;
+			productReference = 3FF86B8C1647D4FD00CB3682 /* BTNetwork.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3FF86BAC1647D4FD00CB3682 /* BTNetworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FF86BC21647D4FD00CB3682 /* Build configuration list for PBXNativeTarget "BTNetworkTests" */;
+			buildPhases = (
+				3FF86BA81647D4FD00CB3682 /* Sources */,
+				3FF86BA91647D4FD00CB3682 /* Frameworks */,
+				3FF86BAA1647D4FD00CB3682 /* Resources */,
+				3FF86BAB1647D4FD00CB3682 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3FF86BB31647D4FD00CB3682 /* PBXTargetDependency */,
+			);
+			name = BTNetworkTests;
+			productName = BTNetworkTests;
+			productReference = 3FF86BAD1647D4FD00CB3682 /* BTNetworkTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3FF86B831647D4FD00CB3682 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BT;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "He baochen";
+			};
+			buildConfigurationList = 3FF86B861647D4FD00CB3682 /* Build configuration list for PBXProject "BTNetwork" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3FF86B811647D4FD00CB3682;
+			productRefGroup = 3FF86B8D1647D4FD00CB3682 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3FF86B8B1647D4FD00CB3682 /* BTNetwork */,
+				3FF86BAC1647D4FD00CB3682 /* BTNetworkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3FF86B8A1647D4FD00CB3682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF86B9B1647D4FD00CB3682 /* InfoPlist.strings in Resources */,
+				3FF86BA31647D4FD00CB3682 /* Default.png in Resources */,
+				3FF86BA51647D4FD00CB3682 /* Default@2x.png in Resources */,
+				3FF86BA71647D4FD00CB3682 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FF86BAA1647D4FD00CB3682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF86BB91647D4FD00CB3682 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FF86BAB1647D4FD00CB3682 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3FF86B881647D4FD00CB3682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF86B9D1647D4FD00CB3682 /* main.m in Sources */,
+				3FF86BA11647D4FD00CB3682 /* BTAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FF86BA81647D4FD00CB3682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF86BBC1647D4FD00CB3682 /* BTNetworkTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3FF86BB31647D4FD00CB3682 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FF86B8B1647D4FD00CB3682 /* BTNetwork */;
+			targetProxy = 3FF86BB21647D4FD00CB3682 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3FF86B991647D4FD00CB3682 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FF86B9A1647D4FD00CB3682 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3FF86BB71647D4FD00CB3682 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FF86BB81647D4FD00CB3682 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3FF86BBD1647D4FD00CB3682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3FF86BBE1647D4FD00CB3682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3FF86BC01647D4FD00CB3682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTNetwork/BTNetwork-Prefix.pch";
+				INFOPLIST_FILE = "BTNetwork/BTNetwork-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3FF86BC11647D4FD00CB3682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTNetwork/BTNetwork-Prefix.pch";
+				INFOPLIST_FILE = "BTNetwork/BTNetwork-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3FF86BC31647D4FD00CB3682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BTNetwork.app/BTNetwork";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTNetwork/BTNetwork-Prefix.pch";
+				INFOPLIST_FILE = "BTNetworkTests/BTNetworkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		3FF86BC41647D4FD00CB3682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BTNetwork.app/BTNetwork";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTNetwork/BTNetwork-Prefix.pch";
+				INFOPLIST_FILE = "BTNetworkTests/BTNetworkTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3FF86B861647D4FD00CB3682 /* Build configuration list for PBXProject "BTNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FF86BBD1647D4FD00CB3682 /* Debug */,
+				3FF86BBE1647D4FD00CB3682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FF86BBF1647D4FD00CB3682 /* Build configuration list for PBXNativeTarget "BTNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FF86BC01647D4FD00CB3682 /* Debug */,
+				3FF86BC11647D4FD00CB3682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3FF86BC21647D4FD00CB3682 /* Build configuration list for PBXNativeTarget "BTNetworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FF86BC31647D4FD00CB3682 /* Debug */,
+				3FF86BC41647D4FD00CB3682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3FF86B831647D4FD00CB3682 /* Project object */;
+}
