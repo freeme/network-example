@@ -7,12 +7,14 @@
 //
 
 #import "BTAppDelegate.h"
+#import "BTRootViewController.h"
 
 @implementation BTAppDelegate
 
 - (void)dealloc
 {
   [_window release];
+  [_navController release];
     [super dealloc];
 }
 
@@ -21,6 +23,12 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+  BTRootViewController *rootViewController = [[BTRootViewController alloc] initWithStyle:UITableViewStylePlain];
+  rootViewController.title = @"BTNetwork Demo";
+  _navController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+  [rootViewController release];
+  [self.window addSubview:_navController.view];
+  
     [self.window makeKeyAndVisible];
     return YES;
 }

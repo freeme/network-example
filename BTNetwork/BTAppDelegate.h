@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BTAppDelegate : UIResponder <UIApplicationDelegate>
+@interface BTAppDelegate : UIResponder <UIApplicationDelegate> {
+  UINavigationController *_navController;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 
