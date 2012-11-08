@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+// https://alpha-api.app.net/stream/0/posts/stream/global
+
 @interface BTAppDelegate : UIResponder <UIApplicationDelegate> {
   UINavigationController *_navController;
 }
