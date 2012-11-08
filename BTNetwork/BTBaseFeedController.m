@@ -6,15 +6,15 @@
 //  Copyright (c) 2012年 He baochen. All rights reserved.
 //
 
-#import "BTGlobalFeedController.h"
+#import "BTBaseFeedController.h"
 #import "PostTableViewCell.h"
 #import "Post.h"
 
-@interface BTGlobalFeedController ()
+@interface BTBaseFeedController ()
 
 @end
 
-@implementation BTGlobalFeedController
+@implementation BTBaseFeedController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -75,13 +75,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    PostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (!cell) {
-    cell = [[PostTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
   }
-  
-  cell.post = [_posts objectAtIndex:indexPath.row];
-
     
     return cell;
 }

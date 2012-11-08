@@ -7,7 +7,7 @@
 //
 
 #import "BTRootViewController.h"
-#import "BTGlobalFeedController.h"
+#import "BTBaseFeedController.h"
 
 @interface BTRootViewController ()
 
@@ -68,7 +68,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if (indexPath.row == 0) {
-    BTGlobalFeedController *controller = [[BTGlobalFeedController alloc] initWithStyle:UITableViewStylePlain];
+    BTBaseFeedController *controller = [[BTBaseFeedController alloc] initWithStyle:UITableViewStylePlain];
     [self.navigationController pushViewController:controller animated:YES];
     [controller release];
   }

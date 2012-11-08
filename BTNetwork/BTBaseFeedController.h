@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BTGlobalFeedController : UITableViewController {
+@interface BTBaseFeedController : UITableViewController {
   NSMutableArray *_posts;
 }
 

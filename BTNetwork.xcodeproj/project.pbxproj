@@ -39,7 +39,7 @@
 		3F1FFD1C164940FE00C6251F /* TTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FFD0A164940FE00C6251F /* TTUserInfo.m */; };
 		3FC0C427164B502800D5D800 /* global2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FC0C426164B502800D5D800 /* global2.json */; };
 		3FF084EC1648F64B00AAD1FB /* BTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF084EB1648F64B00AAD1FB /* BTRootViewController.m */; };
-		3FF084F01648FE6200AAD1FB /* BTGlobalFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF084EF1648FE6100AAD1FB /* BTGlobalFeedController.m */; };
+		3FF084F01648FE6200AAD1FB /* BTBaseFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF084EF1648FE6100AAD1FB /* BTBaseFeedController.m */; };
 		3FF084F61648FFF100AAD1FB /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF084F31648FFF100AAD1FB /* Post.m */; };
 		3FF084F71648FFF100AAD1FB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF084F51648FFF100AAD1FB /* User.m */; };
 		3FF084F91649048000AAD1FB /* global0.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FF084F81649048000AAD1FB /* global0.json */; };
@@ -58,6 +58,7 @@
 		3FF86BB11647D4FD00CB3682 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF86B921647D4FD00CB3682 /* Foundation.framework */; };
 		3FF86BB91647D4FD00CB3682 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF86BB71647D4FD00CB3682 /* InfoPlist.strings */; };
 		3FF86BBC1647D4FD00CB3682 /* BTNetworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF86BBB1647D4FD00CB3682 /* BTNetworkTests.m */; };
+		4EDC5296164B630A00E3C490 /* BTGlobalFeedController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDC5295164B630A00E3C490 /* BTGlobalFeedController1.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,8 +141,8 @@
 		3FC0C426164B502800D5D800 /* global2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global2.json; sourceTree = "<group>"; };
 		3FF084EA1648F64B00AAD1FB /* BTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTRootViewController.h; sourceTree = "<group>"; };
 		3FF084EB1648F64B00AAD1FB /* BTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTRootViewController.m; sourceTree = "<group>"; };
-		3FF084EE1648FE6100AAD1FB /* BTGlobalFeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTGlobalFeedController.h; sourceTree = "<group>"; };
-		3FF084EF1648FE6100AAD1FB /* BTGlobalFeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTGlobalFeedController.m; sourceTree = "<group>"; };
+		3FF084EE1648FE6100AAD1FB /* BTBaseFeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBaseFeedController.h; sourceTree = "<group>"; };
+		3FF084EF1648FE6100AAD1FB /* BTBaseFeedController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTBaseFeedController.m; sourceTree = "<group>"; };
 		3FF084F21648FFF100AAD1FB /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		3FF084F31648FFF100AAD1FB /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		3FF084F41648FFF100AAD1FB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -168,6 +169,8 @@
 		3FF86BB81647D4FD00CB3682 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FF86BBA1647D4FD00CB3682 /* BTNetworkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTNetworkTests.h; sourceTree = "<group>"; };
 		3FF86BBB1647D4FD00CB3682 /* BTNetworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTNetworkTests.m; sourceTree = "<group>"; };
+		4EDC5294164B630A00E3C490 /* BTGlobalFeedController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTGlobalFeedController1.h; sourceTree = "<group>"; };
+		4EDC5295164B630A00E3C490 /* BTGlobalFeedController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTGlobalFeedController1.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,8 +215,10 @@
 				3FF86BA01647D4FD00CB3682 /* BTAppDelegate.m */,
 				3FF084EA1648F64B00AAD1FB /* BTRootViewController.h */,
 				3FF084EB1648F64B00AAD1FB /* BTRootViewController.m */,
-				3FF084EE1648FE6100AAD1FB /* BTGlobalFeedController.h */,
-				3FF084EF1648FE6100AAD1FB /* BTGlobalFeedController.m */,
+				3FF084EE1648FE6100AAD1FB /* BTBaseFeedController.h */,
+				3FF084EF1648FE6100AAD1FB /* BTBaseFeedController.m */,
+				4EDC5294164B630A00E3C490 /* BTGlobalFeedController1.h */,
+				4EDC5295164B630A00E3C490 /* BTGlobalFeedController1.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -543,7 +548,7 @@
 				3FF86B9D1647D4FD00CB3682 /* main.m in Sources */,
 				3FF86BA11647D4FD00CB3682 /* BTAppDelegate.m in Sources */,
 				3FF084EC1648F64B00AAD1FB /* BTRootViewController.m in Sources */,
-				3FF084F01648FE6200AAD1FB /* BTGlobalFeedController.m in Sources */,
+				3FF084F01648FE6200AAD1FB /* BTBaseFeedController.m in Sources */,
 				3FF084F61648FFF100AAD1FB /* Post.m in Sources */,
 				3FF084F71648FFF100AAD1FB /* User.m in Sources */,
 				3FF084FD1649052500AAD1FB /* PostTableViewCell.m in Sources */,
@@ -574,6 +579,7 @@
 				3F1FFD1A164940FE00C6251F /* TTURLRequest.m in Sources */,
 				3F1FFD1B164940FE00C6251F /* TTURLRequestQueue.m in Sources */,
 				3F1FFD1C164940FE00C6251F /* TTUserInfo.m in Sources */,
+				4EDC5296164B630A00E3C490 /* BTGlobalFeedController1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
