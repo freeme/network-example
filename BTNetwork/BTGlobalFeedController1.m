@@ -7,23 +7,32 @@
 //
 
 #import "BTGlobalFeedController1.h"
-
+#import "Post.h"
+#import "User.h"
 @interface BTGlobalFeedController1 ()
 
 @end
 
 @implementation BTGlobalFeedController1
 
+- (void)dealloc {
+  [_connectionDict release];
+  [super dealloc];
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+      _connectionDict = [[NSMutableDictionary alloc] initWithCapacity:16];
     }
     return self;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+  return 100;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -33,23 +42,64 @@
     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
   }
   
-  //cell.post = [_posts objectAtIndex:indexPath.row];
-  
-  
+  Post *post = [_posts objectAtIndex:indexPath.row];
+  if (post.user.avatarImage == nil ) { //没有头像，发送请求
+    NSArray *key = [_connectionDict allKeysForObject:post.user];
+    if ([key count] == 0) { //没有请求正发送中
+      NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:post.user.avatarImageURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
+      NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:self];
+      [request release];
+      [_connectionDict setValue:post.user forKey:[conn description]];
+    } else {
+      //已经发送过请求了，还没返回
+      
+    }
+    cell.imageView.image = [UIImage imageNamed:@"profile-image-placeholder.png"];
+
+  } else {
+    cell.imageView.image = post.user.avatarImage;
+  }
+  cell.textLabel.text = post.user.username;
   return cell;
 }
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+  [_connectionDict  removeObjectForKey:[connection description]];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;{
+  //检查返回的HTTP Status Code
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;{
+  
+  User *user = (User*)[_connectionDict objectForKey:[connection description]];
+  if (user.tempData == nil) {
+    user.tempData = [NSMutableData dataWithCapacity:0];
+  }
+  [user.tempData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;{  
+  User *user = (User*)[_connectionDict objectForKey:[connection description]];
+  user.avatarImage = [UIImage imageWithData:user.tempData];
+  user.tempData = nil;
+  [_connectionDict  removeObjectForKey:[connection description]];
+  [self.tableView reloadData];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    //Navigation logic may go here. Create and push another view controller.
+  
+     BTGlobalFeedController1 *controller = [[BTGlobalFeedController1 alloc] init];
      // ...
      // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+     [self.navigationController pushViewController:controller animated:YES];
+     [controller release];
+     
 }
 
 @end

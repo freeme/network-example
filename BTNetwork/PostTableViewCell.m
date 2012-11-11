@@ -25,7 +25,6 @@
 #import "Post.h"
 #import "User.h"
 
-#import "UIImageView+AFNetworking.h"
 
 @implementation PostTableViewCell 
 
@@ -34,7 +33,7 @@
 
 - (void)dealloc {
   [_post release];
-  
+  [_netImageView release];
   [super dealloc];
 }
 
@@ -49,7 +48,8 @@
     self.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
     self.detailTextLabel.numberOfLines = 0;
     self.selectionStyle = UITableViewCellSelectionStyleGray;
-    
+    _netImageView = [[TTNetImageView alloc] initWithFrame:self.imageView.frame];
+  [self.contentView addSubview:_netImageView];
     return self;
 }
 
@@ -60,10 +60,9 @@
     
     self.textLabel.text = _post.user.username;
 //    /self.imageView.image = [UIImage imageNamed:@"profile-image-placeholder.png"];
-    [self.imageView setImageWithURL:[NSURL URLWithString:_post.user.avatarImageURL] placeholderImage:[UIImage imageNamed:@"profile-image-placeholder.png"]];
+    //[self.imageView setImageWithURL:[NSURL URLWithString:_post.user.avatarImageURL] placeholderImage:[UIImage imageNamed:@"profile-image-placeholder.png"]];
+    _netImageView.urlPath = _post.user.avatarImageURL;
   }
-
-
 }
 
 

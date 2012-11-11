@@ -29,12 +29,15 @@
 @synthesize userID = _userID;
 @synthesize username = _username;
 @synthesize avatarImageURL = _avatarImageURL;
+@synthesize avatarImage = _avatarImage;
+@synthesize tempData = _tempData;
 
 - (void)dealloc {
   [_username release];
   [_avatarImageURL release];
   [_coverImageURL release];
-  
+  [_avatarImage release];
+  [_tempData release];
   [super dealloc];
 }
 

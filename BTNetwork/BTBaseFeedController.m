@@ -69,7 +69,7 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [_posts count];
+  return [_posts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -21,10 +21,13 @@
 // THE SOFTWARE.
 
 #import <UIKit/UIKit.h>
+#import "TTNetImageView.h"
 
 @class Post;
 
-@interface PostTableViewCell : UITableViewCell
+@interface PostTableViewCell : UITableViewCell {
+  TTNetImageView *_netImageView ;
+}
 
 @property (nonatomic, retain) Post *post;
 

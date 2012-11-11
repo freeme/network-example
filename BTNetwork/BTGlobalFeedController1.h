@@ -10,7 +10,7 @@
 #import "BTBaseFeedController.h"
 
 @interface BTGlobalFeedController1 : BTBaseFeedController {
-
+  NSMutableDictionary *_connectionDict;
 }
 
 @end

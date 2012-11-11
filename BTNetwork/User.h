@@ -25,11 +25,12 @@
 
 @interface User : NSObject
 
-@property (readonly) NSUInteger userID;
-@property (readonly) NSString *username;
-@property (readonly) NSString *avatarImageURL;
-@property (readonly) NSString *coverImageURL;
-
+@property (nonatomic,readonly) NSUInteger userID;
+@property (nonatomic,readonly) NSString *username;
+@property (nonatomic,readonly) NSString *avatarImageURL;
+@property (nonatomic,readonly) NSString *coverImageURL;
+@property (retain) UIImage *avatarImage;
+@property (nonatomic,retain) NSMutableData *tempData;
 - (id)initWithAttributes:(NSDictionary *)attributes;
 
 @end
