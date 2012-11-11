@@ -148,7 +148,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (BOOL)createPathIfNecessary:(NSString*)path {
   BOOL succeeded = YES;
-
+NSLog(@"path:%@",path);
   NSFileManager* fm = [NSFileManager defaultManager];
   if (![fm fileExistsAtPath:path]) {
     succeeded = [fm createDirectoryAtPath: path
@@ -167,7 +167,7 @@ static NSMutableDictionary* gNamedCaches = nil;
   NSString* cachesPath = [paths objectAtIndex:0];
   NSString* cachePath = [cachesPath stringByAppendingPathComponent:name];
   NSString* etagCachePath = [cachePath stringByAppendingPathComponent:kEtagCacheDirectoryName];
-
+  NSLog(@"");
   [self createPathIfNecessary:cachesPath];
   [self createPathIfNecessary:cachePath];
   [self createPathIfNecessary:etagCachePath];

@@ -34,9 +34,9 @@
 #import "TTDebug.h"
 
 static const NSTimeInterval kFlushDelay = 0.3; //1.3;
-static const NSTimeInterval kTimeout = 300.0;
+static const NSTimeInterval kTimeout = 10.0;
 static const NSInteger kMaxConcurrentLoads = 2;
-static NSUInteger kDefaultMaxContentLength = 2*1024*1024; //2M
+static NSUInteger kDefaultMaxContentLength = 5*1024*1024; //2M
 
 static TTURLRequestQueue* gMainQueue = nil;
 
@@ -595,7 +595,7 @@ static TTURLRequestQueue* gMainQueue = nil;
 
   } else {
     if (!(loader.cachePolicy & TTURLRequestCachePolicyNoCache)) {
-
+      NSLog(@"----------------");
       // Store the etag key if the etag cache policy has been requested.
       if (![[TTURLCache sharedCache] disableDiskCache]
           && IS_MASK_SET(loader.cachePolicy, TTURLRequestCachePolicyEtag)) {

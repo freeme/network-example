@@ -29,6 +29,12 @@
 		3F1FFD1B164940FE00C6251F /* TTURLRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FFD06164940FE00C6251F /* TTURLRequestQueue.m */; };
 		3F1FFD1C164940FE00C6251F /* TTUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FFD0A164940FE00C6251F /* TTUserInfo.m */; };
 		3FC0C427164B502800D5D800 /* global2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FC0C426164B502800D5D800 /* global2.json */; };
+		3FE29D28164F485C00D5616B /* BTGlobalFeedController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE29D27164F485C00D5616B /* BTGlobalFeedController2.m */; };
+		3FE29D2C164F72E400D5616B /* BTConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE29D2B164F72E400D5616B /* BTConsoleViewController.m */; };
+		3FE29D32164F7F8500D5616B /* global3.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FE29D31164F7F8500D5616B /* global3.json */; };
+		3FE29D35164F812300D5616B /* BTGlobalFeedController2n.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE29D34164F812300D5616B /* BTGlobalFeedController2n.m */; };
+		3FE29D3B164F86BF00D5616B /* UITableViewController-Console.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE29D3A164F86BF00D5616B /* UITableViewController-Console.m */; };
+		3FE29D3F164F8EA700D5616B /* BTDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE29D3E164F8EA700D5616B /* BTDetailViewController.m */; };
 		3FF084EC1648F64B00AAD1FB /* BTRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF084EB1648F64B00AAD1FB /* BTRootViewController.m */; };
 		3FF084F01648FE6200AAD1FB /* BTBaseFeedController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF084EF1648FE6100AAD1FB /* BTBaseFeedController.m */; };
 		3FF084F61648FFF100AAD1FB /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF084F31648FFF100AAD1FB /* Post.m */; };
@@ -111,6 +117,17 @@
 		3F1FFD09164940FE00C6251F /* TTUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUserInfo.h; sourceTree = "<group>"; };
 		3F1FFD0A164940FE00C6251F /* TTUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUserInfo.m; sourceTree = "<group>"; };
 		3FC0C426164B502800D5D800 /* global2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global2.json; sourceTree = "<group>"; };
+		3FE29D26164F485C00D5616B /* BTGlobalFeedController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTGlobalFeedController2.h; sourceTree = "<group>"; };
+		3FE29D27164F485C00D5616B /* BTGlobalFeedController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTGlobalFeedController2.m; sourceTree = "<group>"; };
+		3FE29D2A164F72E400D5616B /* BTConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTConsoleViewController.h; sourceTree = "<group>"; };
+		3FE29D2B164F72E400D5616B /* BTConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTConsoleViewController.m; sourceTree = "<group>"; };
+		3FE29D31164F7F8500D5616B /* global3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = global3.json; sourceTree = "<group>"; };
+		3FE29D33164F812300D5616B /* BTGlobalFeedController2n.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTGlobalFeedController2n.h; sourceTree = "<group>"; };
+		3FE29D34164F812300D5616B /* BTGlobalFeedController2n.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTGlobalFeedController2n.m; sourceTree = "<group>"; };
+		3FE29D39164F86BF00D5616B /* UITableViewController-Console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController-Console.h"; sourceTree = "<group>"; };
+		3FE29D3A164F86BF00D5616B /* UITableViewController-Console.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController-Console.m"; sourceTree = "<group>"; };
+		3FE29D3D164F8EA600D5616B /* BTDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTDetailViewController.h; sourceTree = "<group>"; };
+		3FE29D3E164F8EA700D5616B /* BTDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTDetailViewController.m; sourceTree = "<group>"; };
 		3FF084EA1648F64B00AAD1FB /* BTRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTRootViewController.h; sourceTree = "<group>"; };
 		3FF084EB1648F64B00AAD1FB /* BTRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BTRootViewController.m; sourceTree = "<group>"; };
 		3FF084EE1648FE6100AAD1FB /* BTBaseFeedController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BTBaseFeedController.h; sourceTree = "<group>"; };
@@ -187,10 +204,20 @@
 				3FF86BA01647D4FD00CB3682 /* BTAppDelegate.m */,
 				3FF084EA1648F64B00AAD1FB /* BTRootViewController.h */,
 				3FF084EB1648F64B00AAD1FB /* BTRootViewController.m */,
+				3FE29D2A164F72E400D5616B /* BTConsoleViewController.h */,
+				3FE29D2B164F72E400D5616B /* BTConsoleViewController.m */,
 				3FF084EE1648FE6100AAD1FB /* BTBaseFeedController.h */,
 				3FF084EF1648FE6100AAD1FB /* BTBaseFeedController.m */,
 				4EDC5294164B630A00E3C490 /* BTGlobalFeedController1.h */,
 				4EDC5295164B630A00E3C490 /* BTGlobalFeedController1.m */,
+				3FE29D26164F485C00D5616B /* BTGlobalFeedController2.h */,
+				3FE29D27164F485C00D5616B /* BTGlobalFeedController2.m */,
+				3FE29D33164F812300D5616B /* BTGlobalFeedController2n.h */,
+				3FE29D34164F812300D5616B /* BTGlobalFeedController2n.m */,
+				3FE29D3D164F8EA600D5616B /* BTDetailViewController.h */,
+				3FE29D3E164F8EA700D5616B /* BTDetailViewController.m */,
+				3FE29D39164F86BF00D5616B /* UITableViewController-Console.h */,
+				3FE29D3A164F86BF00D5616B /* UITableViewController-Console.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -342,6 +369,7 @@
 		3FF86B971647D4FD00CB3682 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3FE29D31164F7F8500D5616B /* global3.json */,
 				3FC0C426164B502800D5D800 /* global2.json */,
 				3F1FFCBA16493FBD00C6251F /* global1.json */,
 				3FF084F81649048000AAD1FB /* global0.json */,
@@ -456,6 +484,7 @@
 				3F1FFCB916493EFD00C6251F /* profile-image-placeholder@2x.png in Resources */,
 				3F1FFCBB16493FBD00C6251F /* global1.json in Resources */,
 				3FC0C427164B502800D5D800 /* global2.json in Resources */,
+				3FE29D32164F7F8500D5616B /* global3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +545,11 @@
 				3F1FFD1B164940FE00C6251F /* TTURLRequestQueue.m in Sources */,
 				3F1FFD1C164940FE00C6251F /* TTUserInfo.m in Sources */,
 				4EDC5296164B630A00E3C490 /* BTGlobalFeedController1.m in Sources */,
+				3FE29D28164F485C00D5616B /* BTGlobalFeedController2.m in Sources */,
+				3FE29D2C164F72E400D5616B /* BTConsoleViewController.m in Sources */,
+				3FE29D35164F812300D5616B /* BTGlobalFeedController2n.m in Sources */,
+				3FE29D3B164F86BF00D5616B /* UITableViewController-Console.m in Sources */,
+				3FE29D3F164F8EA700D5616B /* BTDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

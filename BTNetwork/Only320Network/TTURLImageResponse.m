@@ -69,7 +69,8 @@
       image = [UIImage imageWithData:data];
     }
     if (nil != image) {
-      if (!request.respondedFromCache) {
+      //if (!request.respondedFromCache) { Gary Delete
+      if (!request.respondedFromCache && !(request.cachePolicy & TTURLRequestCachePolicyNoCache)) { //Gary add to fix cache bug
 // XXXjoe Working on option to scale down really large images to a smaller size to save memory
 //        if (image.size.width * image.size.height > (300*300)) {
 //          image = [image transformWidth:300 height:(image.size.height/image.size.width)*300.0

@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BTBaseFeedController.h"
 
-@interface BTGlobalFeedController1 : BTBaseFeedController {
+
+@interface BTGlobalFeedController1 : BTBaseFeedController<NSURLConnectionDelegate> {
   NSMutableDictionary *_connectionDict;
 }
 

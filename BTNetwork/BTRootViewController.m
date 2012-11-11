@@ -8,6 +8,7 @@
 
 #import "BTRootViewController.h"
 #import "BTGlobalFeedController1.h"
+#import "UITableViewController-Console.h"
 
 @interface BTRootViewController ()
 
@@ -27,7 +28,8 @@
     if (self) {
         // Custom initialization
       _demoItems = [[NSMutableArray alloc] initWithCapacity:4];
-      [_demoItems addObject:@"GlobalFeed Demo 1"];
+      [_demoItems addObject:@"BTGlobalFeedController1"];
+      [_demoItems addObject:@"BTGlobalFeedController2"];
     }
     return self;
 }
@@ -67,11 +69,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if (indexPath.row == 0) {
-    BTGlobalFeedController1 *controller = [[BTGlobalFeedController1 alloc] initWithStyle:UITableViewStylePlain];
-    [self.navigationController pushViewController:controller animated:YES];
-    [controller release];
-  }
+  NSString *className = [_demoItems objectAtIndex:indexPath.row];
+  Class controllerClass = NSClassFromString(className);
+  UIViewController *controller = [[controllerClass alloc] initWithStyle:UITableViewStylePlain];
+  [self.navigationController pushViewController:controller animated:YES];
+  [controller release];
 }
 
 @end

@@ -26,13 +26,13 @@
     if (self) {
         // Custom initialization
       _connectionDict = [[NSMutableDictionary alloc] initWithCapacity:16];
+      self.title = @"Controller1";
     }
+
     return self;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-  return 100;
-}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -63,8 +63,10 @@
   return cell;
 }
 
+#pragma mark - NSURLRequestDelegate
+
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-  [_connectionDict  removeObjectForKey:[connection description]];
+  [_connectionDict removeObjectForKey:[connection description]];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;{
@@ -77,29 +79,33 @@
   if (user.tempData == nil) {
     user.tempData = [NSMutableData dataWithCapacity:0];
   }
+  //从网络接收返回的数量，多次调用，直到数据全部下载完成
   [user.tempData appendData:data];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection;{  
   User *user = (User*)[_connectionDict objectForKey:[connection description]];
   user.avatarImage = [UIImage imageWithData:user.tempData];
+  //将临时数据请空
   user.tempData = nil;
-  [_connectionDict  removeObjectForKey:[connection description]];
+  [_connectionDict removeObjectForKey:[connection description]];
+  
+  //让TableView重新加载一次数据
   [self.tableView reloadData];
 }
-
+#pragma mark -
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //Navigation logic may go here. Create and push another view controller.
   
-     BTGlobalFeedController1 *controller = [[BTGlobalFeedController1 alloc] init];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:controller animated:YES];
-     [controller release];
-     
+  BTGlobalFeedController1 *controller = [[BTGlobalFeedController1 alloc] init];
+  // ...
+  // Pass the selected object to the new view controller.
+  [self.navigationController pushViewController:controller animated:YES];
+  [controller release];
+  
 }
 
 @end

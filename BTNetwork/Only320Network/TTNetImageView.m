@@ -74,7 +74,7 @@
 - (void)requestDidFinishLoad:(TTURLRequest*)request {
   TTURLImageResponse* response = request.response;
   [self setImage:response.image];
-  
+  NSLog(@"respondedFromCache = %d", request.respondedFromCache);
 
   [self imageViewDidLoadImage:response.image];
   if ([_delegate respondsToSelector:@selector(netImageView:didLoadImage:)]) {
