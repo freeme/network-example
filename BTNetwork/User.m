@@ -31,6 +31,7 @@
 @synthesize avatarImageURL = _avatarImageURL;
 @synthesize avatarImage = _avatarImage;
 @synthesize tempData = _tempData;
+@synthesize coverImageSize = _coverImageSize;
 
 - (void)dealloc {
   [_username release];
@@ -51,6 +52,9 @@
     _username = [[attributes valueForKeyPath:@"username"] copy];
     _avatarImageURL = [[attributes valueForKeyPath:@"avatar_image.url"] copy];
     _coverImageURL = [[attributes valueForKeyPath:@"cover_image.url"] copy];
+  NSInteger coverHeight = [[attributes valueForKeyPath:@"cover_image.height"] integerValue];
+  NSInteger coverWidth = [[attributes valueForKeyPath:@"cover_image.width"] integerValue];
+    _coverImageSize = CGSizeMake(coverWidth, coverHeight);
     return self;
 }
 

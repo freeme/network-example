@@ -244,31 +244,39 @@ static TTURLRequestQueue* gMainQueue = nil;
               expires:request.cacheExpirationAge
               fromDisk:!_suspended && (request.cachePolicy & TTURLRequestCachePolicyDisk)
               data:&data error:&error timestamp:&timestamp]) {
-      request.isLoading = NO;
-
-      if (!error) {
-        error = [request.response request:request processResponse:nil data:data];
-      }
-
-      if (error) {
-        for (id<TTURLRequestDelegate> delegate in request.delegates) {
-          if ([delegate respondsToSelector:@selector(request:didFailLoadWithError:)]) {
-            [delegate request:request didFailLoadWithError:error];
+      
+      if (([request.response isKindOfClass:[TTURLImageResponse class]]
+           && [data isKindOfClass:[UIImage class]])
+          && ([request.response isKindOfClass:[TTURLDataResponse class]]
+              && [data isKindOfClass:[NSData class]])
+          ) {
+        request.isLoading = NO;
+        
+        if (!error) {
+          //TODO: fix bug, ImageResponse缓存后，再用DataResponse请求，可以得到Image类型的
+          error = [request.response request:request processResponse:nil data:data];
+        }
+        
+        if (error) {
+          for (id<TTURLRequestDelegate> delegate in request.delegates) {
+            if ([delegate respondsToSelector:@selector(request:didFailLoadWithError:)]) {
+              [delegate request:request didFailLoadWithError:error];
+            }
+          }
+          
+        } else {
+          request.timestamp = timestamp ? timestamp : [NSDate date];
+          request.respondedFromCache = YES;
+          
+          for (id<TTURLRequestDelegate> delegate in request.delegates) {
+            if ([delegate respondsToSelector:@selector(requestDidFinishLoad:)]) {
+              [delegate requestDidFinishLoad:request];
+            }
           }
         }
-
-      } else {
-        request.timestamp = timestamp ? timestamp : [NSDate date];
-        request.respondedFromCache = YES;
-
-        for (id<TTURLRequestDelegate> delegate in request.delegates) {
-          if ([delegate respondsToSelector:@selector(requestDidFinishLoad:)]) {
-            [delegate requestDidFinishLoad:request];
-          }
-        }
+        
+        return YES;
       }
-
-      return YES;
     }
   }
 

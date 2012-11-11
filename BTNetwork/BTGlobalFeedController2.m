@@ -55,7 +55,7 @@
     
     if (requestPost == nil) { //没有请求正发送中
       TTURLRequest *request = [[TTURLRequest alloc] initWithURL:post.user.avatarImageURL delegate:self];
-      request.response = [[[TTURLDataResponse alloc] init] autorelease];
+      request.response = [[[TTURLImageResponse alloc] init] autorelease];
       [[TTURLRequestQueue mainQueue] sendRequest:request];
       [_connectionDict setValue:post.user forKey:request.urlPath];
       [request autorelease];
@@ -78,8 +78,8 @@
 - (void)requestDidFinishLoad:(TTURLRequest*)request;{
   
   User *user = (User*)[_connectionDict objectForKey:request.urlPath];
-  TTURLDataResponse *dataResponse = request.response;
-  user.avatarImage = [UIImage imageWithData:dataResponse.data];
+  TTURLImageResponse *response = request.response;
+  user.avatarImage = response.image;
   [_connectionDict removeObjectForKey:request.urlPath];
   
   //让TableView重新加载一次数据

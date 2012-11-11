@@ -104,7 +104,7 @@ const NSTimeInterval TTURLRequestUseQueueTimeout = -1.0;
 	self = [super init];
   if (self) {
     _delegates = TTCreateNonRetainingArray();
-    _cachePolicy = TTURLRequestCachePolicyDefault;
+    _cachePolicy = TTURLRequestCachePolicyNoCache;
     _cacheExpirationAge = TT_DEFAULT_CACHE_EXPIRATION_AGE;
     _shouldHandleCookies = YES;
     _charsetForMultipart = NSUTF8StringEncoding;

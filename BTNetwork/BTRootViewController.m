@@ -30,6 +30,7 @@
       _demoItems = [[NSMutableArray alloc] initWithCapacity:4];
       [_demoItems addObject:@"BTGlobalFeedController1"];
       [_demoItems addObject:@"BTGlobalFeedController2"];
+      [_demoItems addObject:@"BTGlobalFeedController3"];
     }
     return self;
 }

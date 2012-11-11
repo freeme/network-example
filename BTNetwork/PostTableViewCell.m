@@ -48,7 +48,7 @@
     self.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
     self.detailTextLabel.numberOfLines = 0;
     self.selectionStyle = UITableViewCellSelectionStyleGray;
-    _netImageView = [[TTNetImageView alloc] initWithFrame:self.imageView.frame];
+    _netImageView = [[TTNetImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
   [self.contentView addSubview:_netImageView];
     return self;
 }
@@ -59,11 +59,16 @@
     _post = [post retain];
     
     self.textLabel.text = _post.user.username;
-//    /self.imageView.image = [UIImage imageNamed:@"profile-image-placeholder.png"];
-    //[self.imageView setImageWithURL:[NSURL URLWithString:_post.user.avatarImageURL] placeholderImage:[UIImage imageNamed:@"profile-image-placeholder.png"]];
+    _netImageView.defaultImage = [UIImage imageNamed:@"profile-image-placeholder.png"];
     _netImageView.urlPath = _post.user.avatarImageURL;
   }
 }
 
-
+- (void) layoutSubviews {
+  [super layoutSubviews];
+  CGRect labelFrame = self.textLabel.frame;
+  labelFrame.origin.x = _netImageView.frame.size.width + 10;
+  labelFrame.size.width -= labelFrame.origin.x;
+  self.textLabel.frame = labelFrame;
+}
 @end

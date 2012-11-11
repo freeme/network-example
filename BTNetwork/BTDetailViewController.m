@@ -38,7 +38,7 @@
   [self.view addSubview:_nameLabel];
   [self.view addSubview:_coverImageView];
   _avaterImageView.urlPath = self.user.avatarImageURL;
-  _nameLabel.text = self.user.username;
+  _nameLabel.text = [NSString stringWithFormat:@"%@%@",self.user.username,NSStringFromCGSize(_user .coverImageSize)];
   _coverImageView.urlPath = self.user.coverImageURL;
 }
 
