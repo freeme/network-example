@@ -295,11 +295,24 @@ static const NSInteger kLoadMaxRetries = 2;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)dispatchLoaded:(NSDate*)timestamp {
+//- (void)dispatchLoaded:(NSDate*)timestamp {
+//  for (TTURLRequest* request in [[_requests copy] autorelease]) {
+//    request.timestamp = timestamp;
+//    request.isLoading = NO;
+//
+//    for (id<TTURLRequestDelegate> delegate in request.delegates) {
+//      if ([delegate respondsToSelector:@selector(requestDidFinishLoad:)]) {
+//        [delegate requestDidFinishLoad:request];
+//      }
+//    }
+//  }
+//}
+
+- (void)dispatchLoaded:(NSDate*)timestamp loadFromCache:(BOOL)loadFromCache {
   for (TTURLRequest* request in [[_requests copy] autorelease]) {
     request.timestamp = timestamp;
     request.isLoading = NO;
-
+    request.respondedFromCache = loadFromCache;
     for (id<TTURLRequestDelegate> delegate in request.delegates) {
       if ([delegate respondsToSelector:@selector(requestDidFinishLoad:)]) {
         [delegate requestDidFinishLoad:request];
@@ -307,7 +320,6 @@ static const NSInteger kLoadMaxRetries = 2;
     }
   }
 }
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)dispatchAuthenticationChallenge:(NSURLAuthenticationChallenge*)challenge {

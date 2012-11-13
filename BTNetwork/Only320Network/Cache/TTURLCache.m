@@ -235,9 +235,6 @@ NSLog(@"path:%@",path);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-/**
- * TODO (jverkoey May 3, 2010): Clean up this redundant code.
- */
 - (BOOL)dataExistsInBundle:(NSString*)URL {
   NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
   NSFileManager* fm = [NSFileManager defaultManager];

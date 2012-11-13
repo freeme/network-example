@@ -98,132 +98,6 @@ static TTURLRequestQueue* gMainQueue = nil;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-/**
- * TODO (jverkoey May 3, 2010): Clean up this redundant code.
- */
-/* Gary delete 2012-4-10
-- (BOOL)dataExistsInBundle:(NSString*)URL {
-  NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
-  NSFileManager* fm = [NSFileManager defaultManager];
-  return [fm fileExistsAtPath:path];
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)dataExistsInDocuments:(NSString*)URL {
-  NSString* path = TTPathForDocumentsResource([URL substringFromIndex:12]);
-  NSFileManager* fm = [NSFileManager defaultManager];
-  return [fm fileExistsAtPath:path];
-}
-*/
-
-/* Gary delete 2012-4-10
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSData*)loadFromBundle:(NSString*)URL error:(NSError**)error {
-  NSString* path = TTPathForBundleResource([URL substringFromIndex:9]);
-  NSFileManager* fm = [NSFileManager defaultManager];
-  if ([fm fileExistsAtPath:path]) {
-    return [NSData dataWithContentsOfFile:path];
-
-  } else if (error) {
-    *error = [NSError errorWithDomain:NSCocoaErrorDomain
-                      code:NSFileReadNoSuchFileError userInfo:nil];
-  }
-  return nil;
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (NSData*)loadFromDocuments:(NSString*)URL error:(NSError**)error {
-  NSString* path = TTPathForDocumentsResource([URL substringFromIndex:12]);
-  NSFileManager* fm = [NSFileManager defaultManager];
-  if ([fm fileExistsAtPath:path]) {
-    return [NSData dataWithContentsOfFile:path];
-
-  } else if (error) {
-    *error = [NSError errorWithDomain:NSCocoaErrorDomain
-                      code:NSFileReadNoSuchFileError userInfo:nil];
-  }
-  return nil;
-}
-*/
-
-/*Gary delete, move them to TTURLCache
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)loadFromCache: (NSString*)URL
-             cacheKey: (NSString*)cacheKey
-              expires: (NSTimeInterval)expirationAge
-             fromDisk: (BOOL)fromDisk
-                 data: (id*)data
-                error: (NSError**)error
-            timestamp: (NSDate**)timestamp {
-  TTDASSERT(nil != data);
-
-  if (nil == data) {
-    return NO;
-  }
-
-  UIImage* image = [[TTURLCache sharedCache] imageForURL:URL fromDisk:fromDisk];
-
-  if (nil != image) {
-    *data = image;
-    return YES;
-
-  } else if (fromDisk) {
-    *data = [[TTURLCache sharedCache] dataForKey:cacheKey expires:expirationAge
-                                       timestamp:timestamp];
-    if (*data) {
-      return YES;
-    }
-    
-    // Gary delete 2012-4-10, loadFromBundle and loadFromDocuments operations are called in [[TTURLCache sharedCache] imageForURL:URL fromDisk:fromDisk];
-     
-//    if (TTIsBundleURL(URL)) {
-//      *data = [self loadFromBundle:URL error:error];
-//      return YES;
-//
-//    } else if (TTIsDocumentsURL(URL)) {
-//      *data = [self loadFromDocuments:URL error:error];
-//      return YES;
-//
-//    } else {
-//      *data = [[TTURLCache sharedCache] dataForKey:cacheKey expires:expirationAge
-//                                        timestamp:timestamp];
-//      if (*data) {
-//        return YES;
-//      }
-//    }
-    
-  }
-
-  return NO;
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)cacheDataExists: (NSString*)URL
-               cacheKey: (NSString*)cacheKey
-                expires: (NSTimeInterval)expirationAge
-               fromDisk: (BOOL)fromDisk {
-  BOOL hasData = [[TTURLCache sharedCache] hasImageForURL:URL fromDisk:fromDisk];
-
-  if (!hasData && fromDisk) {
-    if (TTIsBundleURL(URL)) {
-      hasData = [self dataExistsInBundle:URL];
-
-    } else if (TTIsDocumentsURL(URL)) {
-      hasData = [self dataExistsInDocuments:URL];
-
-    } else {
-      hasData = [[TTURLCache sharedCache] hasDataForKey:cacheKey expires:expirationAge];
-    }
-  }
-
-  return hasData;
-}
-*/
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)loadRequestFromCache:(TTURLRequest*)request {
   if (!request.cacheKey) {
     request.cacheKey = [[TTURLCache sharedCache] keyForURL:request.urlPath];
@@ -304,7 +178,8 @@ static TTURLRequestQueue* gMainQueue = nil;
       [loader dispatchError:error];
 
     } else {
-      [loader dispatchLoaded:timestamp];
+      //Gary modify
+      [loader dispatchLoaded:timestamp loadFromCache:YES];
     }
 
   } else {
@@ -373,6 +248,7 @@ static TTURLRequestQueue* gMainQueue = nil;
     return YES;
   }
 
+  //TODO: move these code into the request
   for (id<TTURLRequestDelegate> delegate in request.delegates) {
     if ([delegate respondsToSelector:@selector(requestDidStartLoad:)]) {
       [delegate requestDidStartLoad:request];
@@ -381,6 +257,7 @@ static TTURLRequestQueue* gMainQueue = nil;
 
   // If the url is empty, fail.
   if (!request.urlPath.length) {
+    //TODO: move these code into the request
     NSError* error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorBadURL userInfo:nil];
     for (id<TTURLRequestDelegate> delegate in request.delegates) {
       if ([delegate respondsToSelector:@selector(request:didFailLoadWithError:)]) {
@@ -651,7 +528,8 @@ static TTURLRequestQueue* gMainQueue = nil;
 
       [[TTURLCache sharedCache] storeData:data forKey:loader.cacheKey];
     }
-    [loader dispatchLoaded:[NSDate date]];
+    //Gary modify
+    [loader dispatchLoaded:[NSDate date] loadFromCache:NO];
   }
   [loader release];
 
@@ -678,10 +556,12 @@ static TTURLRequestQueue* gMainQueue = nil;
     }
 
     if (nil == error) {
-      for (TTURLRequest* request in loader.requests) {
-        request.respondedFromCache = YES;
-      }
-      [loader dispatchLoaded:[NSDate date]];
+      //Gary delete
+//      for (TTURLRequest* request in loader.requests) {
+//        request.respondedFromCache = YES;
+//      }
+      //Gary modify
+      [loader dispatchLoaded:[NSDate date] loadFromCache:YES];
     }
   }
 

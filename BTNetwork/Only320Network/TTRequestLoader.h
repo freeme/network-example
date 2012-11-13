@@ -127,7 +127,9 @@
 
 - (NSError*)processResponse:(NSHTTPURLResponse*)response data:(id)data;
 - (void)dispatchError:(NSError*)error;
-- (void)dispatchLoaded:(NSDate*)timestamp;
+//TODO: fix bug: when suspend = YES, responseFromCache property is not set
+//- (void)dispatchLoaded:(NSDate*)timestamp;
+- (void)dispatchLoaded:(NSDate*)timestamp loadFromCache:(BOOL)loadFromCache;
 - (void)dispatchAuthenticationChallenge:(NSURLAuthenticationChallenge*)challenge;
 - (void)cancel;
 
