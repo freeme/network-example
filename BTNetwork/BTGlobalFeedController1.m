@@ -54,6 +54,7 @@
       //已经发送过请求了，还没返回
       
     }
+    // 这段代码大家要记好
     cell.imageView.image = [UIImage imageNamed:@"profile-image-placeholder.png"];
 
   } else {
