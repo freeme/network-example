@@ -30,7 +30,7 @@
 @property (nonatomic,readonly) NSString *avatarImageURL;
 @property (nonatomic,readonly) NSString *coverImageURL;
 @property (nonatomic,readonly) CGSize coverImageSize;
-@property (retain) UIImage *avatarImage;
+@property (nonatomic,retain) UIImage *avatarImage;
 @property (nonatomic,retain) NSMutableData *tempData;
 - (id)initWithAttributes:(NSDictionary *)attributes;
 

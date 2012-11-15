@@ -44,24 +44,21 @@
   static NSString *CellIdentifier = @"Cell";
   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (!cell) {
-    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
   }
   
   Post *post = [_posts objectAtIndex:indexPath.row];
   if (post.user.avatarImage == nil ) { //没有头像，发送请求
+    User *requestingUser = (User*)[_connectionDict objectForKey:post.user.avatarImageURL];
     
-    //NSArray *key = [_connectionDict allKeysForObject:post.user];
-    Post *requestPost = [_connectionDict objectForKey:post.user.avatarImageURL];
-    
-    if (requestPost == nil) { //没有请求正发送中
+    if (requestingUser == nil) { //没有请求正发送中
+       [_connectionDict setValue:post.user forKey:post.user.avatarImageURL];
       TTURLRequest *request = [[TTURLRequest alloc] initWithURL:post.user.avatarImageURL delegate:self];
       request.response = [[[TTURLImageResponse alloc] init] autorelease];
       [[TTURLRequestQueue mainQueue] sendRequest:request];
-      [_connectionDict setValue:post.user forKey:request.urlPath];
       [request autorelease];
     } else {
       //已经发送过请求了，还没返回
-      
     }
     cell.imageView.image = [UIImage imageNamed:@"profile-image-placeholder.png"];
     
@@ -76,8 +73,7 @@
 #pragma mark - TTURLRequestDelegate
 
 - (void)requestDidFinishLoad:(TTURLRequest*)request;{
-  
-  User *user = (User*)[_connectionDict objectForKey:request.urlPath];
+  User *user = (User*)[_connectionDict valueForKey:request.urlPath];
   TTURLImageResponse *response = request.response;
   user.avatarImage = response.image;
   [_connectionDict removeObjectForKey:request.urlPath];
@@ -107,19 +103,19 @@
 {
   //Navigation logic may go here. Create and push another view controller.
   
-//  BTGlobalFeedController2 *controller = [[BTGlobalFeedController2 alloc] init];
-//  // ...
-//  // Pass the selected object to the new view controller.
-//  [self.navigationController pushViewController:controller animated:YES];
-//  [controller release];
-  
-  BTDetailViewController *controller = [[BTDetailViewController alloc] init];
+  BTGlobalFeedController2 *controller = [[BTGlobalFeedController2 alloc] init];
   // ...
   // Pass the selected object to the new view controller.
-  Post *post = [_posts objectAtIndex:indexPath.row];
-  controller.user = post.user;
   [self.navigationController pushViewController:controller animated:YES];
   [controller release];
+  
+//  BTDetailViewController *controller = [[BTDetailViewController alloc] init];
+//  // ...
+//  // Pass the selected object to the new view controller.
+//  Post *post = [_posts objectAtIndex:indexPath.row];
+//  controller.user = post.user;
+//  [self.navigationController pushViewController:controller animated:YES];
+//  [controller release];
   
 }
 @end

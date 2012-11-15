@@ -68,6 +68,8 @@
  */
 @property (nonatomic) NSUInteger maxPixelCount;
 
+@property (nonatomic, readonly) NSUInteger totalPixelCount;
+@property (nonatomic, readonly) NSUInteger imageCountInMemory;
 /**
  * The amount of time to set back the modification timestamp on files when invalidating them.
  */

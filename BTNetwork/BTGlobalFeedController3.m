@@ -8,7 +8,9 @@
 
 #import "BTGlobalFeedController3.h"
 #import "PostTableViewCell.h"
-
+#import "BTDetailViewController.h"
+#import "Post.h"
+#import "User.h"
 @interface BTGlobalFeedController3 ()
 
 @end
@@ -27,5 +29,24 @@
   return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  //Navigation logic may go here. Create and push another view controller.
+  
+  //  BTGlobalFeedController3 *controller = [[BTGlobalFeedController3 alloc] init];
+  //  // ...
+  //  // Pass the selected object to the new view controller.
+  //  [self.navigationController pushViewController:controller animated:YES];
+  //  [controller release];
+  
+  BTDetailViewController *controller = [[BTDetailViewController alloc] init];
+  // ...
+  // Pass the selected object to the new view controller.
+  Post *post = [_posts objectAtIndex:indexPath.row];
+  controller.user = post.user;
+  [self.navigationController pushViewController:controller animated:YES];
+  [controller release];
+  
+}
 
 @end

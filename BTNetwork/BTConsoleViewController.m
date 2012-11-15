@@ -14,6 +14,8 @@
 #define REQUEST_COUNT @"正在请求: "
 #define WAITING_COUNT @"正在等待: "
 #define TOTAL_COUNT @"总数   : "
+#define CACHE_IMAGE_COUNT @"缓存图片数量: "
+#define CACHE_MEMO_COUNT @"缓存图片占内存: "
 static BTConsoleViewController * instance;
 
 @interface BTConsoleViewController ()
@@ -65,23 +67,52 @@ static BTConsoleViewController * instance;
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
-  self.view.frame = CGRectMake(0, 400, 320, 80);
-  self.view.backgroundColor= [UIColor blackColor];
+  _labelPosY = 0;
+  self.view.backgroundColor= [UIColor darkGrayColor];
+  self.view.alpha = 0.9;
   _refreshTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self
                                                  selector:@selector(refreshUI) userInfo:nil repeats:YES];
   _valueUIDict = [[NSMutableDictionary dictionaryWithCapacity:8] retain];
-  [self addObserver:self
-         forKeyPath:REQUEST_COUNT];
-  [self addObserver:self
-         forKeyPath:WAITING_COUNT];
-  [self addObserver:self
-         forKeyPath:TOTAL_COUNT];
-  
+
+  [self addKVLabelForKey:REQUEST_COUNT];
   UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  button1.frame = CGRectMake(170, 60, 100, 20);
+  button1.frame = CGRectMake(240, _labelPosY, 70, 20);
   [button1 setTitle:@"暂停" forState:UIControlStateNormal];
   [button1 addTarget:self action:@selector(suspendAction:) forControlEvents:UIControlEventTouchUpInside];
   [self.view addSubview:button1];
+    _labelPosY += 20;
+  [self addKVLabelForKey:WAITING_COUNT];
+    _labelPosY += 20;
+  [self addKVLabelForKey:TOTAL_COUNT];
+    _labelPosY += 20;
+  [self addKVLabelForKey:CACHE_IMAGE_COUNT];
+   _labelPosY += 20;
+  [self addKVLabelForKey:CACHE_MEMO_COUNT];
+  UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  button2.frame = CGRectMake(240, _labelPosY, 70, 20);
+  [button2 setTitle:@"清内存" forState:UIControlStateNormal];
+  [button2 addTarget:self action:@selector(clearMemory) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:button2];
+  _labelPosY+=20;
+  [self addKVLabelForKey:@"禁用图片(内存)缓存"];
+  UISwitch *switchControl1 = [[UISwitch alloc] initWithFrame:CGRectMake(150, _labelPosY, 0, 0)];
+  [switchControl1 addTarget:self action:@selector(disableImageCache:) forControlEvents:UIControlEventValueChanged];
+  [self.view addSubview:switchControl1];
+  [switchControl1 release];
+  _labelPosY+=20;
+  [self addKVLabelForKey:@"禁用本地缓存"];
+  UISwitch *switchControl2 = [[UISwitch alloc] initWithFrame:CGRectMake(150, _labelPosY, 0, 0)];
+  switchControl2.on = [TTURLCache sharedCache].disableDiskCache;
+  [switchControl2 addTarget:self action:@selector(disableLocalCache:) forControlEvents:UIControlEventValueChanged];
+  [self.view addSubview:switchControl2];
+  [switchControl2 release];
+  UIButton *button3 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  button3.frame = CGRectMake(240, _labelPosY, 70, 20);
+  [button3 setTitle:@"清本地" forState:UIControlStateNormal];
+  [button3 addTarget:self action:@selector(clearDisk) forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:button3];
+   _labelPosY+=20;
+  self.view.frame = CGRectMake(0, 480-_labelPosY, 320, _labelPosY);
 }
 
 - (void)suspendAction:(id)sender {
@@ -94,27 +125,53 @@ static BTConsoleViewController * instance;
   }
 }
 
-- (void) addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath {
+- (void)clearMemory {
+  TTURLCache *cache = [TTURLCache sharedCache];
+  [cache removeAll:NO];
+}
+
+- (void)clearDisk {
+  TTURLCache *cache = [TTURLCache sharedCache];
+  [cache removeAll:YES];
+}
+
+- (void)disableImageCache:(id)sender {
+  UISwitch *switchControl = (UISwitch*)sender;
+  [TTURLCache sharedCache].disableImageCache = switchControl.on;
+}
+
+- (void)disableLocalCache:(id)sender {
+  UISwitch *switchControl = (UISwitch*)sender;
+  [TTURLCache sharedCache].disableDiskCache = switchControl.on;
+}
+
+- (void) addKVLabelForKey:(NSString *)key {
   //    TTURLRequestQueue *queue = [TTURLRequestQueue mainQueue];
   //    [queue addObserver:observer forKeyPath:keyPath];
-  [self addKeyLabelWithY:_labelPosY text:keyPath];
-  [self addValueLabelWithY:_labelPosY key:keyPath];
-  _labelPosY += 20;
+  [self addKeyLabelWithY:_labelPosY text:key];
+  [self addValueLabelWithY:_labelPosY key:key];
+
 }
 
 - (void) addKeyLabelWithY:(CGFloat)y text:(NSString*)text {
-  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, y, 200, 20)];
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, y, 150, 20)];
   label.text = [NSString stringWithFormat:@"%@ ", text];
+  label.font = [UIFont boldSystemFontOfSize:18];
   label.textColor = [UIColor whiteColor];
-  label.backgroundColor = [UIColor blackColor];
+  label.shadowColor = [UIColor blackColor];
+  label.shadowOffset = CGSizeMake(-1, -1);
+  label.backgroundColor = [UIColor clearColor];
   [self.view addSubview:label];
   [label release];
 }
 
 - (void) addValueLabelWithY:(CGFloat)y key:(NSString*)key {
-  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(210, y, 100, 20)];
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(150, y, 100, 20)];
+  label.font = [UIFont boldSystemFontOfSize:18];
   label.textColor = [UIColor whiteColor];
-  label.backgroundColor = [UIColor blackColor];
+  label.shadowColor = [UIColor blackColor];
+  label.backgroundColor = [UIColor clearColor];
+  label.shadowOffset = CGSizeMake(-1, -1);
   [self.view addSubview:label];
   [_valueUIDict setValue:label forKey:key];
   [label release];
@@ -122,6 +179,7 @@ static BTConsoleViewController * instance;
 
 - (void) refreshUI {
   TTURLRequestQueue *queue = [TTURLRequestQueue mainQueue];
+  TTURLCache *cache = [TTURLCache sharedCache];
   UILabel *label = [_valueUIDict objectForKey:WAITING_COUNT];
   label.text = [NSString stringWithFormat:@"%d", [queue.loaderQueue count]];
   
@@ -131,6 +189,11 @@ static BTConsoleViewController * instance;
   label = [_valueUIDict objectForKey:REQUEST_COUNT];
   label.text = [NSString stringWithFormat:@"%d", queue.totalLoading];
   
+  label = [_valueUIDict objectForKey:CACHE_IMAGE_COUNT];
+  label.text = [NSString stringWithFormat:@"%d", cache.imageCountInMemory];
+  
+  label = [_valueUIDict objectForKey:CACHE_MEMO_COUNT];
+  label.text = [NSString stringWithFormat:@"%.2f MB", (float)cache.totalPixelCount * 4 / 1024 / 1024];
 }
 
 - (void)open {

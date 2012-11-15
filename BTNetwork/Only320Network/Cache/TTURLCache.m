@@ -55,7 +55,7 @@ static NSMutableDictionary* gNamedCaches = nil;
 @synthesize cachePath         = _cachePath;
 @synthesize maxPixelCount     = _maxPixelCount;
 @synthesize invalidationAge   = _invalidationAge;
-
+@synthesize totalPixelCount   = _totalPixelCount;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (id)initWithName:(NSString*)name {
@@ -685,6 +685,10 @@ NSLog(@"path:%@",path);
     [fm changeFileAttributes:attrs atPath:filePath];
 #endif
   }
+}
+
+- (NSUInteger)imageCountInMemory {
+  return _imageCache.count;
 }
 
 

@@ -118,12 +118,12 @@ static TTURLRequestQueue* gMainQueue = nil;
               expires:request.cacheExpirationAge
               fromDisk:!_suspended && (request.cachePolicy & TTURLRequestCachePolicyDisk)
               data:&data error:&error timestamp:&timestamp]) {
-      
-      if (([request.response isKindOfClass:[TTURLImageResponse class]]
-           && [data isKindOfClass:[UIImage class]])
-          && ([request.response isKindOfClass:[TTURLDataResponse class]]
-              && [data isKindOfClass:[NSData class]])
-          ) {
+      //TODO: check more. Gary
+//      if (([request.response isKindOfClass:[TTURLImageResponse class]]
+//           && [data isKindOfClass:[UIImage class]])
+//          || ([request.response isKindOfClass:[TTURLDataResponse class]]
+//              && [data isKindOfClass:[NSData class]])
+//          ) {
         request.isLoading = NO;
         
         if (!error) {
@@ -150,7 +150,7 @@ static TTURLRequestQueue* gMainQueue = nil;
         }
         
         return YES;
-      }
+//      }
     }
   }
 
